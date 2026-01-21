@@ -86,13 +86,12 @@ public class Servidor extends conexion {
             return "SIN_ARCHIVOS";
         }
 
-        StringBuilder lista = new StringBuilder("ARCHIVOS:");
+        String lista = "ARCHIVOS: \n";
         for (File archivo : archivos) {
             if (archivo.isFile()) {
-                lista.append(archivo.getName()).append(",");
+                lista+="-"+archivo.getName()+"\n";
             }
         }
-
         return lista.toString();
     }
 
@@ -126,11 +125,11 @@ public class Servidor extends conexion {
             }
 
             BufferedReader reader = new BufferedReader(new FileReader(archivo));
-            StringBuilder contenido = new StringBuilder("CONTENIDO:");
+            String contenido = "CONTENIDO:";
             String linea;
 
             while ((linea = reader.readLine()) != null) {
-                contenido.append(linea).append("\n");
+                contenido+=linea+"\n";
             }
 
             reader.close();

@@ -82,13 +82,8 @@ public class sistema_cliente {
             if (respuesta.equals("SIN_ARCHIVOS")) {
                 System.out.println("La carpeta está vacía. Aún no hay archivos.");
             } else if (respuesta.startsWith("ARCHIVOS:")) {
-                String[] archivos = respuesta.substring(9).split(",");
-                System.out.println("Archivos disponibles:");
-                for (int i = 0; i < archivos.length; i++) {
-                    if (!archivos[i].trim().isEmpty()) {
-                        System.out.println("  - " + archivos[i]);
-                    }
-                }
+                //listado de archivos
+                System.out.println(respuesta);
             }
             System.out.println("\n¿Qué deseas hacer?");
             System.out.println("1. Agregar texto a un archivo");
@@ -134,9 +129,8 @@ public class sistema_cliente {
             String contenido = usuario.leerArchivo(nombreArchivo);
 
             if (contenido.startsWith("CONTENIDO:")) {
-                System.out.println("\n--- Contenido de " + nombreArchivo + " ---");
+                System.out.println("\nContenido de " + nombreArchivo+":");
                 System.out.println(contenido.substring(10));
-                System.out.println("--- Fin del archivo ---");
             } else if (contenido.startsWith("ERROR:")) {
                 System.out.println("✗ " + contenido.substring(6));
             }
