@@ -11,11 +11,11 @@ public class sistema_cliente {
         boolean conectado = false;
         System.out.println("Bienvenido al sistema, por favor selecciona una acción \n");
 
-        while (opcion != 7) {
+        while (opcion != 4) {
             System.out.println("1. Abrir carpeta (Agregar texto a archivos)");
             System.out.println("2. Conectar al servidor");
             System.out.println("3. Desconectar del servidor");
-            System.out.println("7. Salir");
+            System.out.println("4. Salir");
             System.out.print("Opción: ");
             opcion = scan.nextInt();
             scan.nextLine(); // Limpiar buffer
@@ -59,6 +59,10 @@ public class sistema_cliente {
                 } else {
                     System.out.println("Aún no estás conectado al sistema");
                 }
+            }
+            if(opcion == 4){
+                System.out.println("bye,bye");
+                break;
             }
         }
 
